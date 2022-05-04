@@ -1,6 +1,6 @@
 # https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/
 class Solution:
-    def findMin(self, nums: List[int]) -> int:  # find min element in rotated sorted array in O(logn)
+    def findMin(self, nums: List[int]) -> int:  # find min element in rotated sorted prefix_array in O(logn)
         if not nums:
             return -1
         start, end = 0, len(nums) - 1

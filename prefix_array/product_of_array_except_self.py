@@ -18,7 +18,7 @@ class Solution:
     # def productExceptSelf1(self, nums: list[int]) -> list[int]:
     #     if not nums:
     #         return []
-    #     # prepare forward and backward prefix product array, (including self)
+    #     # prepare forward and backward prefix product prefix_array, (including self)
     #     forward_prefix_product = [1] * len(nums)  # prefix product up to and including pos i
     #     backward_prefix_product = [1] * len(nums)  # prefix product (backward) up to and including pos j
     #     forward_prefix_product[0], backward_prefix_product[len(nums) - 1] = nums[0], nums[len(nums) - 1]
@@ -41,7 +41,7 @@ class Solution:
         for i in range(1, len(nums)):  # use res as placeholder for forward prefix product before pos i
             res[i] = nums[i - 1] * res[i - 1]
         R = 1  # traverse backward and use 1 variable for backward prefix product after j
-        for i in reversed(range(len(nums))):  # this save the space for second prefix array
+        for i in reversed(range(len(nums))):  # this save the space for second prefix prefix_array
             res[i] = res[i] * R
             R *= nums[i]  # prepare backward prefix product after j for next round
         return res

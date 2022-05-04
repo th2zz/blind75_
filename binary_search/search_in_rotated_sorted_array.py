@@ -1,6 +1,6 @@
 # https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
 
-class Solution:  # search for target in rotated sorted array O(logn), return index of target or -1 if not present
+class Solution:  # search for target in rotated sorted prefix_array O(logn), return index of target or -1 if not present
     def search(self, nums: List[int], target: int) -> int:  # assume left rotate
         if not nums:
             return -1

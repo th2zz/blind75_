@@ -7,7 +7,7 @@ class Solution:
         if not prices:
             return 0
         dp = [0] * len(prices)  # max profits at day i
-        min_prices = [sys.maxsize] * len(prices)  # min_price at day i, same idea as prefix array
+        min_prices = [sys.maxsize] * len(prices)  # min_price at day i, same idea as prefix prefix_array
         min_price = sys.maxsize
         for i, p in enumerate(prices):
             min_price = min(p, min_price)
