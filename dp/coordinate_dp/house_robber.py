@@ -1,5 +1,5 @@
 """
-输入: 一个int array 代表 系列房子 每个房子内有一定金额的钱, 不可以抢劫相邻的房子 问可以抢到的最大金额
+输入: 一个int array 代表 系列房子 每个房子内有一定金额的钱 (非负), 不可以抢劫相邻的房子 问可以抢到的最大金额
 Constraints:
 1 <= nums.length <= 100
 0 <= nums[i] <= 400
@@ -15,6 +15,10 @@ Input: nums = [2,7,9,3,1]
 Output: 12
 Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
 Total amount you can rob = 2 + 9 + 1 = 12.
+
+dp[0] = nums[0]
+dp[1] = max(nums[0], nums[1])
+dp[i] = max(dp[i - 2] + nums[i], dp[i - 1])
 """
 
 
