@@ -30,3 +30,6 @@ Constraints:
             if max_i >= i and i + jump > max_i:  # if cur pos reachable, update furthest pos based on i
                 max_i = i + jump  # 当前位置可达max_i >= i 则打擂台更新max_i
         return max_i >= len(nums) - 1
+
+
+print(Solution().canJump([3, 2, 1, 0, 4]))
