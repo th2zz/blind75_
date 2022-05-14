@@ -1,3 +1,4 @@
+from typing import List
 """
 house robber, same set up but with circular array
 
@@ -30,7 +31,8 @@ class Solution:  # https://leetcode.cn/problems/house-robber-ii/
             return 0
         if len(nums) == 1:
             return nums[0]
-        dp = [0] * len(nums)  # dp[i] amount of money we can rob at house i, so far
+        # dp[i] amount of money we can rob at house i, so far
+        dp = [0] * len(nums)
         dp[0] = nums[0]
         dp[1] = max(nums[0], nums[1])
         for i in range(2, len(nums)):
@@ -43,7 +45,8 @@ class Solution:  # https://leetcode.cn/problems/house-robber-ii/
             return nums[0]
         elif length == 2:
             return max(nums[0], nums[1])
-        else:  # cannot rob the first and the last house at the same time, return max sol ([0..n-2], [1..n-1])
+        # cannot rob the first and the last house at the same time, return max sol ([0..n-2], [1..n-1])
+        else:
             return max(self.rob_naive(nums[0: length - 1]), self.rob_naive(nums[1: length]))
 
     def rob2(self, nums: List[int]) -> int:
