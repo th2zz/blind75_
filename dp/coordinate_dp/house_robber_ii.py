@@ -1,5 +1,6 @@
 """
-house robber, same set up except we have circular array
+house robber, same set up but with circular array
+
 Example 1:
 
 Input: nums = [2,3,2]
@@ -20,10 +21,6 @@ Constraints:
 
 1 <= nums.length <= 100
 0 <= nums[i] <= 1000
-
-dp[0] = nums[0]
-dp[1] = max(nums[0], nums[1]) if len(nums) == 1
-dp[i] = max(nums[i - 2] + nums[i], nums[i-1])
 """
 
 
