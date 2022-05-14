@@ -1,3 +1,5 @@
+
+
 class Solution:  # https://leetcode.cn/problems/longest-increasing-subsequence/
     """
     Given an integer array nums, return the length of the longest strictly increasing subsequence.
@@ -27,4 +29,11 @@ Constraints:
 
     """
     def lengthOfLIS(self, nums: List[int]) -> int:
-        
+        if not nums:
+            return 0
+        dp = [1] * len(nums)
+        for i in range(len(nums)):
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+        return max(dp)  # TODO  dp[i]可能仍为初始值 所以直接返回max

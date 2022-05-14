@@ -10,6 +10,8 @@ How many distinct ways can you climb to the top?
     def climbStairs(self, n: int) -> int:
         # dp[i] = dp[i - 1] + d[i - 2] for i >= 2    dp[i]:= how many distinct ways to reach top in i steps
         # for i >= 0, i <= 1: dp[0] = 0, dp[1] = 1
+        if n == 0:
+            return 0
         dp = [0] * (n + 1)
         dp[0] = 1  # define there is 1 way to reach top in 0 steps
         dp[1] = 1
