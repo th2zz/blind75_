@@ -16,14 +16,14 @@ class Solution:
 
     # return min# meeting rooms to accommodate all meetings
     def minMeetingRooms(self, intervals: List[List[int]]):
-        intervals.sort(key=lambda x:x[0])  # sort by start time
+        intervals.sort(key=lambda x:x[0])  # TODO sort by start time
         earliest_endtimes: list[int] = [intervals[0][1]]  # init heap with first item
-        ans = 1
+        res = 1  # start from 1 (first meeting)
         for i in range(1, len(intervals)):  # traverse remaining intervals; heap[0] = peeek!
             interval = intervals[i]
             if interval[0] < earliest_endtimes[0]: # conflict 会议开始时间 < 最早结束时间，需增加会议室
-                ans+=1
+                res += 1
             else: # no conflict 可以在最早结束的会议之后开始当前会议，之前的最早结束时间变成当前会议结束的时间
-                heapq.heappop(earliest_endtimes) 
-            heapq.heappush(earliest_endtimes, interval[1])
-        return ans   
+                heapq.heappop(earliest_endtimes)   # pop from heap 
+            heapq.heappush(earliest_endtimes, interval[1])  # add curr interval end time to heap
+        return res
