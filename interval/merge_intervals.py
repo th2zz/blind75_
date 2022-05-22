@@ -25,8 +25,8 @@ intervals[i].length == 2
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         sorted_intervals = sorted(intervals, key=lambda x: x[0])  # sort by start
         res = []
-        for interval in sorted_intervals:
-            if not res or res[-1][1] < interval[0]:  # res empty or res[-1].end < interval.start NO OVERLAP append directly
+        for interval in sorted_intervals:  # 这里[1,2] [2,3] 也会被认为是重合的  需要被合并
+            if not res or res[-1][1] < interval[0]:  # res empty or res[-1].end < interval.start = 无重合
                 res.append(interval)
             else:
                 res[-1][1] = max(res[-1][1], interval[1])  # update tail interval end value := max  if overlapped
